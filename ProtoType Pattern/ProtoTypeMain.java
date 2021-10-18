@@ -4,9 +4,9 @@ public class ProtoTypeMain {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
 		
-		//person °´Ã¼ »ı¼º
+		//person ê°ì²´ ìƒì„±
 		Person person1 = new Person("Lee", new Age(940705,28));
-		//person °´Ã¼ÀÇ copy ¸Ş¼Òµå¸¦ ÅëÇÑ ÇÁ·ÎÅäÅ¸ÀÔ ¼³°è
+		//person ê°ì²´ì˜ copy ë©”ì†Œë“œë¥¼ í†µí•œ í”„ë¡œí† íƒ€ì… ì„¤ê³„
 		Person person2 = person1.copy();
 		person2.setName("Kim");
 		person2.getAge().setBirthday(970325);
