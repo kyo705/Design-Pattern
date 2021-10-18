@@ -28,10 +28,10 @@ public class Person implements Cloneable{
 		this.age = age;
 	}
 	
-	//ÇÁ·ÎÅäÅ¸ÀÔ ¼³°è ¸Ş¼Òµå
+	//í”„ë¡œí† íƒ€ì… ì„¤ê³„ ë©”ì†Œë“œ
 	public Person copy() throws CloneNotSupportedException {
 		Person person = (Person) this.clone();
-		//person°´Ã¼ÀÇ ÇÊµå°ª Áß age°¡ reference typeÀÌ±â ¶§¹®¿¡ ±íÀº º¹»ç°¡ ¾È‰Î. µû¶ó¼­ Á÷Á¢ ±íÀº º¹»ç°¡ µÇ°Ô ¸¸µé¾îÁÜ
+		//personê°ì²´ì˜ í•„ë“œê°’ ì¤‘ ageê°€ reference typeì´ê¸° ë•Œë¬¸ì— ê¹Šì€ ë³µì‚¬ê°€ ì•ˆÂ‰. ë”°ë¼ì„œ ì§ì ‘ ê¹Šì€ ë³µì‚¬ê°€ ë˜ê²Œ ë§Œë“¤ì–´ì¤Œ
 		person.setAge(new Age(this.getAge().getBirthday(),this.getAge().getAgenum()));
 		return person;
 	}
