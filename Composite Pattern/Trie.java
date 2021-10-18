@@ -4,9 +4,9 @@ import java.util.*;
 
 public class Trie {
 
-	//ÇÏÀ§ ³ëµå
+	//í•˜ìœ„ ë…¸ë“œ
 	Trie[] child = new Trie[26];
-	//ÇÏÀ§ ³ëµåÀÇ °¹¼ö
+	//í•˜ìœ„ ë…¸ë“œì˜ ê°¯ìˆ˜
 	int count;
 	
 	void insert(String str){
