@@ -1,6 +1,6 @@
 package Builder;
 
-//Computer °´Ã¼ÀÇ ¸â¹öº¯¼ö°¡ ¸¹À» ¶§ mainÇÔ¼ö¿¡¼­ °´Ã¼ »ı¼ºÀÇ °¡µ¶¼ºÀ» ³ôÀÌ±â À§ÇÑ ¹æ¹ı
+//Computer ê°ì²´ì˜ ë©¤ë²„ë³€ìˆ˜ê°€ ë§ì„ ë•Œ mainí•¨ìˆ˜ì—ì„œ ê°ì²´ ìƒì„±ì˜ ê°€ë…ì„±ì„ ë†’ì´ê¸° ìœ„í•œ ë°©ë²•
 public class ComputerBuilder {
 
 	private Computer computer;
