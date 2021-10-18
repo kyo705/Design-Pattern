@@ -38,7 +38,7 @@ class WinWirte implements Write{
 	@Override
 	public String getWrite() {
 
-		return "À©µµ¿ì¿¡¼­ÀÇ ¾²±â ±â´É";
+		return "ìœˆë„ìš°ì—ì„œì˜ ì“°ê¸° ê¸°ëŠ¥";
 	}
 	
 }
@@ -47,7 +47,7 @@ class WinDelete implements Delete{
 	@Override
 	public String getDelete() {
 		
-		return "À©µµ¿ì¿¡¼­ÀÇ »èÁ¦ ±â´É";
+		return "ìœˆë„ìš°ì—ì„œì˜ ì‚­ì œ ê¸°ëŠ¥";
 	}
 	
 }
@@ -70,7 +70,7 @@ class MacWrite implements Write{
 
 	@Override
 	public String getWrite() {
-		return "¸Æ¿¡¼­ÀÇ ¾²±â ±â´É";
+		return "ë§¥ì—ì„œì˜ ì“°ê¸° ê¸°ëŠ¥";
 	}
 	
 }
@@ -79,7 +79,7 @@ class MacDelete implements Delete{
 
 	@Override
 	public String getDelete() {
-		return "¸Æ¿¡¼­ÀÇ »èÁ¦ ±â´É";
+		return "ë§¥ì—ì„œì˜ ì‚­ì œ ê¸°ëŠ¥";
 	}
 	
 }
@@ -102,7 +102,7 @@ class LinuxWrite implements Write{
 
 	@Override
 	public String getWrite() {
-		return "¸®´ª½º¿¡¼­ÀÇ ¾²±â ±â´É";
+		return "ë¦¬ëˆ…ìŠ¤ì—ì„œì˜ ì“°ê¸° ê¸°ëŠ¥";
 	}
 	
 }
@@ -111,7 +111,7 @@ class LinuxDelete implements Delete{
 
 	@Override
 	public String getDelete() {
-		return "¸®´ª½º¿¡¼­ÀÇ »èÁ¦ ±â´É";
+		return "ë¦¬ëˆ…ìŠ¤ì—ì„œì˜ ì‚­ì œ ê¸°ëŠ¥";
 	}
 	
 }
