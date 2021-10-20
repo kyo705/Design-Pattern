@@ -11,30 +11,30 @@ public class Rewarding implements Visitor{
 
 	@Override
 	public void visit(Bronze bronze) {
-		System.out.println("º¸»ó ¸ñ·Ï : ¾øÀ½");
+		System.out.println("ë³´ìƒ ëª©ë¡ : ì—†ìŒ");
 	}
 
 	@Override
 	public void visit(Silver silver) {
-		System.out.println("º¸»ó ¸ñ·Ï : ¾øÀ½");
+		System.out.println("ë³´ìƒ ëª©ë¡ : ì—†ìŒ");
 		
 	}
 
 	@Override
 	public void visit(Gold gold) {
-		System.out.println("º¸»ó ¸ñ·Ï : ½ºÅ²(½Â¸®ÀÇ ¸ğ¸£°¡³ª)");
+		System.out.println("ë³´ìƒ ëª©ë¡ : ìŠ¤í‚¨(ìŠ¹ë¦¬ì˜ ëª¨ë¥´ê°€ë‚˜)");
 		
 	}
 
 	@Override
 	public void visit(Platinum platinum) {
-		System.out.println("º¸»ó ¸ñ·Ï : ½ºÅ²(½Â¸®ÀÇ ¸ğ¸£°¡³ª), ½ºÅ² »óÀÚ 1°³");
+		System.out.println("ë³´ìƒ ëª©ë¡ : ìŠ¤í‚¨(ìŠ¹ë¦¬ì˜ ëª¨ë¥´ê°€ë‚˜), ìŠ¤í‚¨ ìƒì 1ê°œ");
 		
 	}
 
 	@Override
 	public void visit(Diamond diamond) {
-		System.out.println("º¸»ó ¸ñ·Ï : ½ºÅ²(½Â¸®ÀÇ ¸ğ¸£°¡³ª), ½ºÅ² »óÀÚ 2°³");
+		System.out.println("ë³´ìƒ ëª©ë¡ : ìŠ¤í‚¨(ìŠ¹ë¦¬ì˜ ëª¨ë¥´ê°€ë‚˜), ìŠ¤í‚¨ ìƒì 2ê°œ");
 		
 	}
 
