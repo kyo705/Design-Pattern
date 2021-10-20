@@ -7,9 +7,9 @@ public class Main {
 		Item1 item1 = new Item1(10);
 		Item2 item2 = new Item2(40);
 		
-		//Ã¥ÀÓ °´Ã¼¸¦ ¿¬°á½ÃÅ´
+		//ì±…ì„ ê°ì²´ë¥¼ ì—°ê²°ì‹œí‚´
 		item1.nextItemChain(item2);
-		//¸í·É °´Ã¼(attack)¸¦ Ã¥ÀÓ °´Ã¼¸¦ ÅëÇØ ¼öÇà½ÃÅ´
+		//ëª…ë ¹ ê°ì²´(attack)ë¥¼ ì±…ì„ ê°ì²´ë¥¼ í†µí•´ ìˆ˜í–‰ì‹œí‚´
 		item1.amonutdamage(attack);
 		
 		System.out.println(attack.getDamage());
