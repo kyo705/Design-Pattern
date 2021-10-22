@@ -13,7 +13,7 @@ public class Main {
 		utube.addObserver(subscriber2);
 		utube.addObserver(subscriber3);
 		
-		utube.updateContents("Àç·ÕÀÌ ¿µ»ó");
+		utube.updateContents("ì¬ë¡±ì´ ì˜ìƒ");
 	}
 	
 }
