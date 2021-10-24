@@ -4,7 +4,7 @@ public class ConcreteCoreFunc implements CoreFunc{
 
 	@Override
 	public void corefunc() {
-		System.out.println("Áß¿ä ±â´É");
+		System.out.println("í•µì‹¬ ê¸°ëŠ¥");
 	}
 
 }
