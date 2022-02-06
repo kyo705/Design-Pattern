@@ -7,7 +7,7 @@ public abstract class Templete {
 		p2();
 		p3();
 	}
-	abstract void p1();
-	abstract void p2();
-	abstract void p3();
+	abstract protected void p1();
+	abstract protected void p2();
+	abstract protected void p3();
 }
