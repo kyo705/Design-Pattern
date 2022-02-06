@@ -3,18 +3,18 @@ package TempleteMethod;
 public class ConcreteTemplete extends Templete{
 
 	@Override
-	void p1() {
-		System.out.println("MySql DB¿¡ ¿¬°á");
+	protected void p1() {
+		System.out.println("MySql DBì— ì—°ê²°");
 	}
 
 	@Override
-	void p2() {
-		System.out.println("SQLÀ» ÅëÇÑ Á¶È¸");
+	protected void p2() {
+		System.out.println("SQLì„ í†µí•œ ì¡°íšŒ");
 	}
 
 	@Override
-	void p3() {
-		System.out.println("Á¶È¸µÈ µ¥ÀÌÅÍ °´Ã¼¿¡ ³ÖÀ½");
+	protected void p3() {
+		System.out.println("ì¡°íšŒëœ ë°ì´í„° ê°ì²´ì— ë„£ìŒ");
 	}
 
 }
