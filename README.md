@@ -148,7 +148,7 @@ System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+perso
 추상 팩토리 패턴은 부품들을 한번에 생성해주는 팩토리 객체의 추상클레스(인터페이스)를 만들어 객체를 생성하는 패턴이다.
 팩토리 객체를 통해 특정 객체들을 생성하는 이유는 객체 간 결합도를 낮추기 때문이다. 구체적으로 말하면 비지니스 로직에서 특정 객체의 내부 생성 과정을 알 필요없이 사용할 수 있다는 것이 장점이다. 만약 팩토리 패턴을 사용하지 않는다면 특정 객체의 로직이 추가, 수정될 때 비지니스 로직에서도 해당 생성 로직을 수정해야하는 경우가 발생한다.   
 팩토리 패턴도 OCP(Open-Closed Principle)을 지키기 위해 인터페이스로 설계한다. 그래서 상황에 알맞은 구현체 팩토리를 생성할 수 있다. 그래서 이름에 '추상'이 붙는 것 같다.   
- 대표적인 예로 EntityMaagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityMaagerFactory는 JPA를 관리하기 위한 EntityMaager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
+ 대표적인 예로 EntityManagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityManagerFactory는 JPA를 관리하기 위한 EntityManager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
 
 ## Builder 패턴
 빌더 패턴은 사용하고자 하는 객체의 필드값이 많을 경우 가독성을 높이기 위해 Builder객체를 만들어 사용한다. 물론 인스턴스 생성시 생성자의 parameter로 값을 전달할 때 주석을 통해 document를 작성할 순 있지만 클린 코드를 만들기 위해서는 코드만으로 사용자가 이해할 수 있게 만들어주는 것이 바람직하다. 그래서 빌더 패턴을 사용하는 것이다.   
@@ -248,8 +248,35 @@ MostChampDto champ = new MostChampBuilder().setAvgcs(avgcs).setAvgkill(avgkill).
 빌더 패턴의 대표적인 예로 배치 처리 시스템에서 job과 stpe을 생성할 때 사용되는 JobBuilder와 StepBuilder가 있다. 또한 StringBuilder 또한 빌더패턴을 사용한 객체이다.
 
 ## FactoryMethod 패턴
-팩토리 메소드 패턴은 객체를 생성할 때 특정한 순서를 가지는 과정이 필요할 때 사용한다. 팩토리 메소드 패턴은 템플릿 메소드 패턴을 사용하는데 템플릿 메소드 패턴의 한 알고리즘 과정의 추상 메소드에 객체를 생성하는 로직을 넣어 객체를 생성하도록 한다. 이 때 특정 객체는 전략패턴을 사용해서 만드는 것이 객체지향적인 설계이기 때문에 인터페이스를 만들고 구체화한 클레스를 만들도록 하였다.
+팩토리 메소드 패턴은 객체를 생성할 때 특정한 순서를 가지는 과정이 필요할 때 사용한다. 이름에서도 알수 있다시피 객체를 생성하는 팩토리 메소드이다. 해당 메소드를 호출하면 객체를 생성시켜주는 것이다. 그렇다고 객체를 생성하는 메소드가 다 팩토리 메소드인것은 아니다. 팩토리 메소드 패턴은 템플릿 메소드 패턴을 사용할 때 템플릿 메소드의 절차 중 객체를 생성하는 로직이 들어간 것이다. 해당 패턴도 객체 지향적인 설계를 위해 OCP를 준수하도록 한다. 다시말해, 여러 방식의 객체를 생성할 수 있도록 팩토리 메소드 패턴 추상 클래스로 만들고 하위 상속 클래스들에서 다양하게 구현할 수 있게 한다.
 
+***팩토리 메소드가 구현되는 코드를 살펴보자***
+```java
+public abstract class FactoryMethod {
+
+	abstract protected void moneydown();
+	
+	//팩토리 메소드
+	abstract protected Item createitem();
+	
+	abstract protected void dbsave();
+	
+	//템플릿 메소드
+	public Item process() {
+		Item item;
+		
+		//아이템에 해당하는 가격만큼 돈 감소
+		moneydown();
+		//객체를 팩토리 메소드를 통해 생성
+		item = createitem();
+		//생성된 객체를 DB에 저장
+		dbsave();
+		
+		return item;
+	}
+}
+```
+해당 클래스는 템플릿 메소드와 비슷하다. 하지만 템플릿 메소드의 부품 메소드에 객체 생성 메소드가 들어있는 형태이다. 우리가 생성하고자 하는 객체의 특성에 맞게 다양한 형태의 하위 클래스들을 구현할 수 있다. 
 
 # 2. 구조 패턴
 -----------------------------------------
