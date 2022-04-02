@@ -24,8 +24,8 @@ public static synchronized Singleton getInstance() {
  해당 방식은 멀티스레드에서의 mutual exclusion를 확실히 보장하지만 성능적인 측면에서 매우 느리다는 단점이 있다.
  ```java
  public class Singleton {
-
-    private ExampleClass() {}
+    //싱글톤 생성자 private으로 new연산을 통한 객체 생성 방지
+    private Singleton() {}
     
     //해당 메소드 실행되면 내부 클래스를 클래스로더가 JVM 런타임 메모리 영역의 메소드 영역(Method Area)에 할당
     public static Singleton getInstance() {
@@ -41,8 +41,90 @@ public static synchronized Singleton getInstance() {
  두 번째 방법은 Inner class의 private static을 통한 클레스 초기화 방식이다. 첫번째 방식에서 inner class를 추가하는 방식이다. 이 방식을 통해 실제 싱글톤 매소드가 실행되었을 때 inner class가 초기화 되고 private static 필드가 생성되면서 생성자를 호출하여 객체를 만들게 된다. 이 때 멀티스레드라고 하더라도 JVM에서는 한 스레드가 클레스를 로더할 때 다른 스레드는 클레스를 로더하지 못하는 메커니즘을 가져 thread safety하게 객체를 생성할 수 있다. 이 방식이 가장 바람직한 방식이라고 한다.
  
 ## ProtoType 패턴
-java에서는 프로토타입 객체 설계를 위해 cloneable 인터페이스를 제공해준다.
-clonable을 implements하면 clone()메소드를 사용할 수 있는데 이 때 clone()을 통해 복제된 객체의 필드 값 중 reference type 필드값이 있다면 그 값은 깊은 복사가 되지 않아 복사의 원본의 타입을 참조하게 된다. 그래서 reference type을 깊은 복사하기 위해 copy()메소드를 구현할 때 clone() 후에 reference 필드 값을 생성자를 통해 새 객체를 참조하게 만들어야 한다. 위와 같은 방법을 통해 완벽하게 복제품을 만드는 것이 가능하다.
+java에서는 프로토타입 객체 설계를 위해 cloneable 인터페이스를 제공해준다.   
+Clonable을 implements하면 clone()메소드를 사용할 수 있는데 이 때 clone()을 통해 복제된 객체의 필드 값 중 reference type 필드값이 있다면 그 값은 깊은 복사가 되지 않아 복사의 원본의 타입을 참조하게 된다.   
+
+***아래 코드를 살펴보자***
+```java
+public class Person implements Cloneable{
+	//primitive type 필드값
+	private	String name;
+	
+	//reference type 필드값
+	private Age age;
+	
+	//getter,setter 생략
+	
+	//프로토타입 설계 메소드
+	public Person copy() throws CloneNotSupportedException {
+		return person = (Person) this.clone();
+	}
+}
+
+public class Age {
+	
+	private int birthday;
+	private int agenum;
+	
+	//생성자 및 getter, setter 생략
+}
+```
+```java
+//person 객체 생성
+Person person1 = new Person("Lee", new Age(940705,28));
+
+//person 객체의 copy 메소드를 통한 프로토타입 설계
+Person person2 = person1.copy();
+person2.setName("Kim");
+person2.getAge().setBirthday(970325);
+person2.getAge().setAgenum(25);
+
+System.out.println(person1.getName()+' '+ person1.getAge().getAgenum()+' '+person1.getAge());
+System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+person2.getAge());
+
+//실행 결과 age 필드값이 깊은 복사가 되지 않음
+//Lee 25 ProtoType.Age@49e4cb85
+//Kim 25 ProtoType.Age@49e4cb85
+```
+그래서 reference type을 깊은 복사하기 위해 copy()메소드를 구현할 때 clone() 후에 reference 필드 값을 생성자를 통해 새 객체를 참조하게 만들어야 한다. 위와 같은 방법을 통해 완벽하게 복제품을 만드는 것이 가능하다.   
+
+***아래 코드는 수정된 코드(깊은 복사 일어남)***
+```java
+public class Person implements Cloneable{
+	//primitive type 필드값
+	private	String name;
+	
+	//reference type 필드값
+	private Age age;
+	
+	//getter,setter 생략
+	
+	//프로토타입 설계 메소드
+	public Person copy() throws CloneNotSupportedException {
+		//person객체의 필드값 중 age가 reference type이기 때문에 깊은 복사가 안됌. 따라서 직접 깊은 복사가 되게 만들어줌
+		person.setAge(new Age(this.getAge().getBirthday(),this.getAge().getAgenum())); // <-- 위의 코드에서 추가된 로직
+		
+		return person = (Person) this.clone();
+	}
+}
+```
+```java
+//person 객체 생성
+Person person1 = new Person("Lee", new Age(940705,28));
+
+//person 객체의 copy 메소드를 통한 프로토타입 설계
+Person person2 = person1.copy();
+person2.setName("Kim");
+person2.getAge().setBirthday(970325);
+person2.getAge().setAgenum(25);
+
+System.out.println(person1.getName()+' '+ person1.getAge().getAgenum()+' '+person1.getAge());
+System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+person2.getAge());
+
+//실행 결과 age 필드값 깊은 복사 확인!!
+//Lee 28 ProtoType.Age@49e4cb85
+//Kim 25 ProtoType.Age@2133c8f8
+```
 
 ## AbstractFactory 패턴
 추상 팩토리 패턴은 부품들을 한번에 생성해주는 팩토리 객체의 추상클레스(인터페이스)를 만들어 객체를 생성하는 패턴이다. 추상 팩토리 패턴은 조건에 따라 팩토리 단위의 객체를 바꿔줄 수 있다. 대표적인 예로 EntityMaagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityMaagerFactory는 JPA를 관리하기 위한 EntityMaager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
