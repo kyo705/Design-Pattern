@@ -1,26 +1,31 @@
-# Design-Pattern
+# 디자인 패턴
 올바르게 객체 지향 프로그래밍을 설계하기 위한 방법
 
+-----------------------
 # 1. 생성 패턴
+-----------------------
 
-[1.Singleton Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%86%A4%20%ED%8C%A8%ED%84%B4.md#singleton-%ED%8C%A8%ED%84%B4)   
-[2.ProtoType Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%20%ED%8C%A8%ED%84%B4.md#prototype-%ED%8C%A8%ED%84%B4)   
-[3.AbstractFactory Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#abstractfactory-%ED%8C%A8%ED%84%B4)      
-[4.Builder Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#builder-%ED%8C%A8%ED%84%B4)   
-[5.FactoryMethod Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#factorymethod-%ED%8C%A8%ED%84%B4)   
-
+## [1. Singleton Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%EC%8B%B1%EA%B8%80%ED%86%A4%20%ED%8C%A8%ED%84%B4.md#singleton-%ED%8C%A8%ED%84%B4)   
+## [2. ProtoType Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%20%ED%8C%A8%ED%84%B4.md#prototype-%ED%8C%A8%ED%84%B4)   
+## [3. AbstractFactory Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%EC%B6%94%EC%83%81%20%ED%8C%A9%ED%86%A0%EB%A6%AC%20%ED%8C%A8%ED%84%B4.md#abstractfactory-%ED%8C%A8%ED%84%B4)      
+## [4. Builder Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%EB%B9%8C%EB%8D%94%20%ED%8C%A8%ED%84%B4.md#builder-%ED%8C%A8%ED%84%B4)   
+## [5. FactoryMethod Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EC%83%9D%EC%84%B1%20%ED%8C%A8%ED%84%B4/%ED%8C%A9%ED%86%A0%EB%A6%AC%20%EB%A9%94%EC%86%8C%EB%93%9C%20%ED%8C%A8%ED%84%B4.md#factorymethod-%ED%8C%A8%ED%84%B4)   
+-----------------------
 # 2. 구조 패턴
+-----------------------
+## [1. Adapter Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#adapter-%ED%8C%A8%ED%84%B4)   
+## [2. Composite Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#composite-%ED%8C%A8%ED%84%B4)   
+## [3. Bridge Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#bridge-%ED%8C%A8%ED%84%B4)   
+## [4. Decorator Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#decorator-%ED%8C%A8%ED%84%B4)   
+## [5. Facade Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#facade-%ED%8C%A8%ED%84%B4)   
+## [6. Flyweight Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#flyweight-%ED%8C%A8%ED%84%B4)   
+## [7. Proxy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#proxy-%ED%8C%A8%ED%84%B4)   
 
-[1.Adapter Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#adapter-%ED%8C%A8%ED%84%B4)   
-[2.Composite Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#composite-%ED%8C%A8%ED%84%B4)   
-[3.Bridge Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#bridge-%ED%8C%A8%ED%84%B4)   
-[4.Decorator Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#decorator-%ED%8C%A8%ED%84%B4)   
-[5.Facade Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#facade-%ED%8C%A8%ED%84%B4)   
-[6.Flyweight Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#flyweight-%ED%8C%A8%ED%84%B4)   
-[7.Proxy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#proxy-%ED%8C%A8%ED%84%B4)   
-
+-----------------------
 # 3. 행위 패턴
 -----------------------------------------
+
+
 ## Singleton 패턴
 싱글톤 패턴은 인스턴스를 단 한개만 생성하도록 하는 패턴이다. 똑같은 객체를 여러번 반복해서 생성해야하는 경우 Heap 영역에 메모리를 낭비하게 된다. 싱글톤이 사용되는 예시를 보면 스레드풀이나 스프링 ioc컨테이너의 빈객체를 생성할 때 등 종종 사용된다. 하지만 싱글톤의 문제점은 멀티스레드 환경에서 발생된다. 멀티스레드에서 스레드들이 한번에 싱글톤에 접근할 때 동시에 객체를 생성할 수 있게 된다. 이를 방지하기 위해 동기화를 시켜야하는데 이 때 보통 2가지 방법으로 동기화를 시킨다.
 ```java
