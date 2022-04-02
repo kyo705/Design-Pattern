@@ -9,6 +9,17 @@
 [4.Builder Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#builder-%ED%8C%A8%ED%84%B4)   
 [5.FactoryMethod Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#factorymethod-%ED%8C%A8%ED%84%B4)   
 
+# 2. 구조 패턴
+
+[1.Adapter Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#adapter-%ED%8C%A8%ED%84%B4)   
+[2.Composite Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#composite-%ED%8C%A8%ED%84%B4)   
+[3.Bridge Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#bridge-%ED%8C%A8%ED%84%B4)   
+[4.Decorator Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#decorator-%ED%8C%A8%ED%84%B4)   
+[5.Facade Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#facade-%ED%8C%A8%ED%84%B4)   
+[6.Flyweight Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#flyweight-%ED%8C%A8%ED%84%B4)   
+[7.Proxy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#proxy-%ED%8C%A8%ED%84%B4)   
+
+# 1. 행위 패턴
 -----------------------------------------
 ## Singleton 패턴
 싱글톤 패턴은 인스턴스를 단 한개만 생성하도록 하는 패턴이다. 똑같은 객체를 여러번 반복해서 생성해야하는 경우 Heap 영역에 메모리를 낭비하게 된다. 싱글톤이 사용되는 예시를 보면 스레드풀이나 스프링 ioc컨테이너의 빈객체를 생성할 때 등 종종 사용된다. 하지만 싱글톤의 문제점은 멀티스레드 환경에서 발생된다. 멀티스레드에서 스레드들이 한번에 싱글톤에 접근할 때 동시에 객체를 생성할 수 있게 된다. 이를 방지하기 위해 동기화를 시켜야하는데 이 때 보통 2가지 방법으로 동기화를 시킨다.
@@ -145,6 +156,14 @@ System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+perso
 
 # 2. 구조 패턴
 -----------------------------------------
+## Adapter 패턴
+
+
+
+## Decorator 패턴
+
+
+
 ## Proxy 패턴
 특정 객체의 가벼운 기능을 대신 처리해주는 객체지향 설계 방식으로 자바에서는 Proxy 클레스를 라이브러리로 제공해준다. Proxy 패턴의 대표적인 예는 바로 AOP이다. AOP란 관점 지향 프로그래밍으로 핵심기능과 서브기능을 나눠 따로 따로 처리하도록 하는 기능인데 이를 구현할 때 Proxy 객체를 통해 처리한다. 프록시 객체는 서브 기능을 자신이 직접 처리하고 핵심 기능은 본 객체를 통해 처리하도록 호출하는 기능이다. (자바에서 제공되는 프록시 클레스는 생성자가 private으로 되어있어 인스턴스를 직접생성하지 않고 매소드를 생성하는 특징이 있다.) 이런 AOP기능을 스프링이 보다 편리하게 사용할 수 있게 제공해준다.
 
