@@ -2,8 +2,8 @@
 올바르게 객체 지향 프로그래밍을 설계하기 위한 방법
 
 # 1. 생성 패턴
-## [Singleton 패턴](https://github.com/kyo705/Design-Pattern/edit/master/README.md#singleton-%ED%8C%A8%ED%84%B4-3)
-## ProtoType 패턴
+[Singleton 패턴](https://github.com/kyo705/Design-Pattern/edit/master/README.md#singleton-%ED%8C%A8%ED%84%B4-3)
+[ProtoType 패턴](https://github.com/kyo705/Design-Pattern/blob/master/README.md#prototype-%ED%8C%A8%ED%84%B4-1)
 ## AbstractFactory 패턴
 ## Singleton 패턴
 ## Singleton 패턴
