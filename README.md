@@ -2,7 +2,9 @@
 올바르게 객체 지향 프로그래밍을 설계하기 위한 방법
 
 # 1. 생성 패턴
-[prototype pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#prototype-%ED%8C%A8%ED%84%B4)
+
+[Singleton Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#singleton-%ED%8C%A8%ED%84%B4)
+[ProtoType Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#prototype-%ED%8C%A8%ED%84%B4)
 -----------------------------------------
 ## Singleton 패턴
 싱글톤 패턴은 인스턴스를 단 한개만 생성하도록 하는 패턴이다. 똑같은 객체를 여러번 반복해서 생성해야하는 경우 Heap 영역에 메모리를 낭비하게 된다. 싱글톤이 사용되는 예시를 보면 스레드풀이나 스프링 ioc컨테이너의 빈객체를 생성할 때 등 종종 사용된다. 하지만 싱글톤의 문제점은 멀티스레드 환경에서 발생된다. 멀티스레드에서 스레드들이 한번에 싱글톤에 접근할 때 동시에 객체를 생성할 수 있게 된다. 이를 방지하기 위해 동기화를 시켜야하는데 이 때 보통 2가지 방법으로 동기화를 시킨다.
