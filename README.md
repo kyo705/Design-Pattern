@@ -145,7 +145,10 @@ System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+perso
 ```
 
 ## AbstractFactory 패턴
-추상 팩토리 패턴은 부품들을 한번에 생성해주는 팩토리 객체의 추상클레스(인터페이스)를 만들어 객체를 생성하는 패턴이다. 추상 팩토리 패턴은 조건에 따라 팩토리 단위의 객체를 바꿔줄 수 있다. 대표적인 예로 EntityMaagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityMaagerFactory는 JPA를 관리하기 위한 EntityMaager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
+추상 팩토리 패턴은 부품들을 한번에 생성해주는 팩토리 객체의 추상클레스(인터페이스)를 만들어 객체를 생성하는 패턴이다.
+팩토리 객체를 통해 특정 객체들을 생성하는 이유는 객체 간 결합도를 낮추기 때문이다. 구체적으로 말하면 비지니스 로직에서 특정 객체의 내부 생성 과정을 알 필요없이 사용할 수 있다는 것이 장점이다. 만약 팩토리 패턴을 사용하지 않는다면 특정 객체의 로직이 추가, 수정될 때 비지니스 로직에서도 해당 생성 로직을 수정해야하는 경우가 발생한다.   
+팩토리 패턴도 OCP(Open-Closed Principle)을 지키기 위해 인터페이스로 설계한다. 그래서 상황에 알맞은 구현체 팩토리를 생성할 수 있다. 그래서 이름에 '추상'이 붙는 것 같다.   
+ 대표적인 예로 EntityMaagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityMaagerFactory는 JPA를 관리하기 위한 EntityMaager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
 
 ## Builder 패턴
 빌더 패턴은 사용하고자 하는 객체의 필드값이 많을 경우 가독성을 높이기 위해 Builder객체를 만들어 사용한다. 물론 인스턴스 생성시 생성자의 parameter로 값을 전달할 때 주석을 통해 document를 작성할 순 있지만 클린 코드를 만들기 위해서는 코드만으로 사용자가 이해할 수 있게 만들어주는 것이 바람직하다. 그래서 빌더 패턴을 사용하는 것이다. 대표적인 예로 배치 처리 시스템에서 job과 stpe을 생성할 때 사용되는 JobBuilder와 StepBuilder가 있다. 또한 StringBuilder 또한 빌더패턴을 사용한 객체이다.
