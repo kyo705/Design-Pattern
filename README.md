@@ -150,6 +150,9 @@ System.out.println(person2.getName()+' '+ person2.getAge().getAgenum()+' '+perso
 팩토리 패턴도 OCP(Open-Closed Principle)을 지키기 위해 인터페이스로 설계한다. 그래서 상황에 알맞은 구현체 팩토리를 생성할 수 있다. 그래서 이름에 '추상'이 붙는 것 같다.   
  대표적인 예로 EntityManagerFactory, JobBuilderFactory, StepBuilderFacotry 들이 있다. EntityManagerFactory는 JPA를 관리하기 위한 EntityManager를 생성하는 객체이다. 그리고 JobBuilderFactory, StepBuilderFacotry 역시 배치 시스템에서 사용되는 JobBuilder와 StepBuilder를 생성해주는 객체이다. 해당 JobBuilder와 StepBuilder는 빌더 패턴으로 job과 step을 생성하기 위한 객체이다. 
 
+![image](https://user-images.githubusercontent.com/89891704/161386055-5fc533e8-9651-4605-952b-71cf48c2b9c7.png)
+
+
 ## Builder 패턴
 빌더 패턴은 사용하고자 하는 객체의 필드값이 많을 경우 가독성을 높이기 위해 Builder객체를 만들어 사용한다. 물론 인스턴스 생성시 생성자의 parameter로 값을 전달할 때 주석을 통해 document를 작성할 순 있지만 클린 코드를 만들기 위해서는 코드만으로 사용자가 이해할 수 있게 만들어주는 것이 바람직하다. 그래서 빌더 패턴을 사용하는 것이다.   
 
