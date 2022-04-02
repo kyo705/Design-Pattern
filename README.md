@@ -4,9 +4,39 @@
 # 1. 생성 패턴
 -----------------------------------------
 ## Singleton 패턴
-싱글톤 패턴은 인스턴스를 단 한개만 생성하도록 하는 패턴이다. 똑같은 객체를 여러번 반복해서 생성해야하는 경우 Heap 영역에 메모리를 낭비하게 된다. 싱글톤이 사용되는 예시를 보면 스레드풀이나 스프링 ioc컨테이너의 빈객체를 생성할 때 등 종종 사용된다. 하지만 싱글톤의 문제점은 멀티스레드 환경에서 발생된다. 멀티스레드에서 스레드들이 한번에 싱글톤에 접근할 때 동시에 객체를 생성할 수 있게 된다. 이를 방지하기 위해 동기화를 시켜야하는데 이 때 보통 2가지 방법으로 동기화를 시킨다.\
- 첫 번째 방법은 synchronized를 통한 멀티스레드 동기화 방식이다. 이 때 synchronized를 메소드에 붙이면 더 넓게 lock이 잡히므로 조건문과 sychronized block을 활용하는 방법이 좋다. 이 때  싱글톤 객체에 volatile를 붙이는데 이는 ram에 데이터를 저장하고 가져오도록 하는 접근 제어 방식이다. 이렇게 하는 이유는 스레드는 기본적으로 캐시를 이용하여 더 빠르게 데이터를 저장하고 접근하도록 하는데 하나의 스레드에서 싱글톤 객체를 생성했는데 이것을 캐쉬에 저장하고 ram에 저장하는 순서를 가진다. 이 때 다른 스레드가 기존의 스레드가 캐시에만 저장되어 있는 시점에 ram에 접근한다면 싱글톤 객체가 없는 것으로 간주하여 또 다른 싱글톤 객체를 생성하게 된다. 그래서 이런 상황을 방지하기 위해 무조건 데이터를 ram에 접근하는 방식을 선택한 것이다. 이것은 멀티스레드에서의 mutual exclusion를 확실시 하게 해주지만 성능적인 측면에서 많이 느리다는 단점이 있다.\
- 두 번째 방법은 inner class의 private static을 통한 클레스 초기화 방식이다. 첫번째 방식에서 inner class를 추가하는 방식이다. 이 방식을 통해 실제 싱글톤 매소드가 실행되었을 때 inner class가 초기화 되고 private static 필드가 생성되면서 생성자를 호출하여 객체를 만들게 된다. 이 때 멀티스레드라고 하더라도 jvm에서는 한 스레드가 클레스를 로더할 때 다른 스레드는 클레스를 로더하지 못하는 메커니즘을 가져 thread safety하게 객체를 생성할 수 있다. 이 방식이 가장 바람직한 방식이라고 한다.
+싱글톤 패턴은 인스턴스를 단 한개만 생성하도록 하는 패턴이다. 똑같은 객체를 여러번 반복해서 생성해야하는 경우 Heap 영역에 메모리를 낭비하게 된다. 싱글톤이 사용되는 예시를 보면 스레드풀이나 스프링 ioc컨테이너의 빈객체를 생성할 때 등 종종 사용된다. 하지만 싱글톤의 문제점은 멀티스레드 환경에서 발생된다. 멀티스레드에서 스레드들이 한번에 싱글톤에 접근할 때 동시에 객체를 생성할 수 있게 된다. 이를 방지하기 위해 동기화를 시켜야하는데 이 때 보통 2가지 방법으로 동기화를 시킨다.
+```java
+//싱글톤 객체, volatile로 싱글톤 객체 메인메모리에 저장
+volatile static private Singleton singleton;
+
+//싱글톤 객체 생성 메소드
+public static synchronized Singleton getInstance() {
+		if(singleton==null)
+			singleton = new Singleton();
+		else
+			System.out.println("기존 아이디가 존재합니다.");
+		
+		return singleton;
+	}
+```
+ 첫 번째 방법은 synchronized를 통한 멀티스레드 동기화 방식이다. 이 때 synchronized를 메소드에 붙이면 더 넓게 lock이 잡히므로 sychronized block을 활용하는 방법이 좋다.(위의 메소드는 동기화에 필요한 로직만 있기 때문에 synchronized 메소드나 synchronized block이나 같다는점!) 이 때 싱글톤 객체에 volatile를 붙이는데 이는 RAM에 데이터를 저장하고 가져오도록 하는 접근 제어 방식이다. RAM에 싱글톤 객체를 저장하는 이유는 스레드는 기본적으로 캐시를 이용하여 더 빠르게 데이터를 저장하고 접근하도록 하는데 하나의 스레드에서 싱글톤 객체를 생성했는데 이것을 캐쉬에 저장하고 RAM에 저장하는 순서를 가진다. 이 때 다른 스레드가 기존의 스레드가 캐시에만 저장되어 있는 시점에 RAM에 접근한다면 싱글톤 객체가 없는 것으로 간주하여 또 다른 싱글톤 객체를 생성하게 된다. 그래서 이런 상황을 방지하기 위해 무조건 데이터를 RAM에 접근하는 방식을 선택한 것이다. 이것은 멀티스레드에서의 mutual exclusion를 확실히 보장하지만 성능적인 측면에서 매우 느리다는 단점이 있다.
+ ```java
+ public class Singleton {
+
+    private ExampleClass() {}
+    
+    //해당 메소드 실행되면 내부 클래스를 클래스로더가 JVM 런타임 메모리 영역의 메소드 영역(Method Area)에 할당
+    public static Singleton getInstance() {
+        return InnerInstanceClass.instance;
+    }
+    
+    //내부 클래스
+    private static class InnerInstanceClass {
+        private static final Singleton instance = new Singleton();
+    }
+}
+ ```
+ 두 번째 방법은 Inner class의 private static을 통한 클레스 초기화 방식이다. 첫번째 방식에서 inner class를 추가하는 방식이다. 이 방식을 통해 실제 싱글톤 매소드가 실행되었을 때 inner class가 초기화 되고 private static 필드가 생성되면서 생성자를 호출하여 객체를 만들게 된다. 이 때 멀티스레드라고 하더라도 JVM에서는 한 스레드가 클레스를 로더할 때 다른 스레드는 클레스를 로더하지 못하는 메커니즘을 가져 thread safety하게 객체를 생성할 수 있다. 이 방식이 가장 바람직한 방식이라고 한다.
  
 ## ProtoType 패턴
 java에서는 프로토타입 객체 설계를 위해 cloneable 인터페이스를 제공해준다.
