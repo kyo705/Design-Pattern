@@ -22,17 +22,17 @@
 
 -----------------------
 ## 3. 행위 패턴
-### [1. Template method Pattern]()
-### [2. Interpreter Pattern]()
-### [3. Iterator Pattern]()
-### [4. Observer Pattern]()
-### [5. Strategy Pattern]()
-### [6. Visitor Pattern]()
-### [7. Chain of responsibility Pattern]()
-### [8. Command Pattern]()
-### [9. Mediator Pattern]()
-### [10. State Pattern]()
-### [11. Memento Pattern]()
+### [1. Template method Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%ED%85%9C%ED%94%8C%EB%A6%BF%20%EB%A9%94%EC%86%8C%EB%93%9C%20%ED%8C%A8%ED%84%B4.md#templete-method-%ED%8C%A8%ED%84%B4)
+### [2. Interpreter Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%9D%B8%ED%84%B0%ED%94%84%EB%A6%AC%ED%84%B0%20%ED%8C%A8%ED%84%B4.md#interpreter-%ED%8C%A8%ED%84%B4)
+### [3. Iterator Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%9D%B4%ED%84%B0%EB%A0%88%EC%9D%B4%ED%84%B0%20%ED%8C%A8%ED%84%B4.md#iterator-%ED%8C%A8%ED%84%B4)
+### [4. Observer Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%98%B5%EC%A0%80%EB%B2%84%20%ED%8C%A8%ED%84%B4.md#observer-%ED%8C%A8%ED%84%B4)
+### [5. Strategy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%A0%84%EB%9E%B5%20%ED%8C%A8%ED%84%B4.md#strategy-%ED%8C%A8%ED%84%B4)
+### [6. Visitor Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EB%B0%A9%EB%AC%B8%EC%9E%90%20%ED%8C%A8%ED%84%B4.md#visitor-%ED%8C%A8%ED%84%B4)
+### [7. Chain of responsibility Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%B1%85%EC%9E%84%20%EC%97%B0%EC%87%84%20%ED%8C%A8%ED%84%B4.md#chain-of-responsibility-%ED%8C%A8%ED%84%B4)
+### [8. Command Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%BB%A4%EB%A7%A8%EB%93%9C%20%ED%8C%A8%ED%84%B4.md#command-%ED%8C%A8%ED%84%B4)
+### [9. Mediator Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%A4%91%EC%9E%AC%EC%9E%90%20%ED%8C%A8%ED%84%B4.md#mediator-%ED%8C%A8%ED%84%B4)
+### [10. State Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EC%83%81%ED%83%9C%20%ED%8C%A8%ED%84%B4.md#state-%ED%8C%A8%ED%84%B4)
+### [11. Memento Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%ED%96%89%EC%9C%84%20%ED%8C%A8%ED%84%B4/%EB%A9%94%EB%A9%98%ED%86%A0%20%ED%8C%A8%ED%84%B4.md#memento-%ED%8C%A8%ED%84%B4)
 -----------------------------------------
 
 
