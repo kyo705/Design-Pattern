@@ -13,13 +13,13 @@
 -----------------------
 # 2. 구조 패턴
 -----------------------
-## [1. Adapter Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#adapter-%ED%8C%A8%ED%84%B4)   
-## [2. Composite Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#composite-%ED%8C%A8%ED%84%B4)   
-## [3. Bridge Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#bridge-%ED%8C%A8%ED%84%B4)   
-## [4. Decorator Pattern](https://github.com/kyo705/Design-Pattern/edit/master/README.md#decorator-%ED%8C%A8%ED%84%B4)   
-## [5. Facade Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#facade-%ED%8C%A8%ED%84%B4)   
-## [6. Flyweight Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#flyweight-%ED%8C%A8%ED%84%B4)   
-## [7. Proxy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/README.md#proxy-%ED%8C%A8%ED%84%B4)   
+## [1. Adapter Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%EC%96%B4%EB%8C%91%ED%84%B0%20%ED%8C%A8%ED%84%B4.md#adapter-%ED%8C%A8%ED%84%B4)   
+## [2. Composite Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%EC%BB%B4%ED%8F%AC%EC%A7%80%ED%8A%B8%20%ED%8C%A8%ED%84%B4.md#composite-%ED%8C%A8%ED%84%B4)   
+## [3. Bridge Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%EB%B8%8C%EB%A6%BF%EC%A7%80%20%ED%8C%A8%ED%84%B4.md#bridge-%ED%8C%A8%ED%84%B4)   
+## [4. Decorator Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%EB%8D%B0%EC%BD%94%EB%A0%88%EC%9D%B4%ED%84%B0%20%ED%8C%A8%ED%84%B4.md#decorator-%ED%8C%A8%ED%84%B4)   
+## [5. Facade Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%ED%8D%BC%EC%82%AC%EB%93%9C%20%ED%8C%A8%ED%84%B4.md#facade-%ED%8C%A8%ED%84%B4)   
+## [6. Flyweight Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%ED%94%8C%EB%9D%BC%EC%9D%B4%EC%9B%A8%EC%9D%B4%ED%8A%B8%20%ED%8C%A8%ED%84%B4.md#flyweight-%ED%8C%A8%ED%84%B4)   
+## [7. Proxy Pattern](https://github.com/kyo705/Design-Pattern/blob/master/%EA%B5%AC%EC%A1%B0%20%ED%8C%A8%ED%84%B4/%ED%94%84%EB%A1%9D%EC%8B%9C%20%ED%8C%A8%ED%84%B4.md#proxy-%ED%8C%A8%ED%84%B4)   
 
 -----------------------
 # 3. 행위 패턴
